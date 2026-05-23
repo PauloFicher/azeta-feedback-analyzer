@@ -1,4 +1,10 @@
-export const metadata = { title: 'Feedback Analyzer - Grupo Azeta' };
+import type { Metadata } from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'Feedback Analyzer - Grupo Azeta',
+  description: 'Analisis de sentimiento con IA para Grupo Azeta',
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
