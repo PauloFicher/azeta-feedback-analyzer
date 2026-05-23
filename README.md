@@ -45,8 +45,8 @@ Supabase INSERT -> feedback_items
 ## ④ Variables de entorno
 
 ```
-OPENAI_API_KEY=sk-proj-...
-ANTHROPIC_API_KEY=sk-ant-...    # Alternativa Claude
+OPENAI_API_KEY=your-openai-api-key
+ANTHROPIC_API_KEY=your-anthropic-api-key    # Alternativa Claude
 LLM_PROVIDER=openai             # "openai" o "anthropic"
 SUPABASE_SERVICE_ROLE_KEY=...
 ```
