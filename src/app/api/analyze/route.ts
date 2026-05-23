@@ -42,6 +42,12 @@ function getOpenAIClient(): OpenAI {
       baseURL: 'https://api.deepseek.com/v1',
     });
   }
+  if (provider === 'groq') {
+    return new OpenAI({
+      apiKey: process.env.GROQ_API_KEY,
+      baseURL: 'https://api.groq.com/openai/v1',
+    });
+  }
   return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 }
 
@@ -131,7 +137,7 @@ export async function POST(request: Request) {
 
     const brandTone = company?.brand_tone || 'profesional_cordial';
     const client = getOpenAIClient();
-    const model = process.env.LLM_PROVIDER === 'anthropic' ? 'claude-3-haiku-20240307' : process.env.LLM_PROVIDER === 'deepseek' ? 'deepseek-chat' : 'gpt-4o-mini';
+    const model = process.env.LLM_PROVIDER === 'anthropic' ? 'claude-3-haiku-20240307' : process.env.LLM_PROVIDER === 'deepseek' ? 'deepseek-chat' : process.env.LLM_PROVIDER === 'groq' ? (process.env.GROQ_MODEL || 'llama-3.1-8b-instant') : 'gpt-4o-mini';
     const provider = process.env.LLM_PROVIDER || 'openai';
 
     // Paso 1: Clasificar
